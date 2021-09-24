@@ -1,0 +1,25 @@
+{% extends 'base.html'   %}
+{%block content%}
+<div class="content">
+  <div class="image">
+    <div class="navbar">          
+    
+    <h1 style="text-align: right;">Expense Tracker </h1>
+    
+  </div>
+  <div class="loginform" >
+<form method="post" >
+  {% csrf_token %}
+  <div class="loginpage">
+    {{ form.as_p }}
+  
+  <pre style="margin-left: auto;margin-right: auto;color:black;" ><br><a href="{%url 'reset'%}"style="float:right;padding-right:400px;color:black;"><i>Forget Password?</i></a><a style="float:left;padding-left:450px;color:black;" href="{%url 'signup'%}"> New User?<i>Sign In</i> </a></pre>
+ 
+  
+  <input class="submit"  style="margin-left: 535px;margin-top: 30px;" type="submit" value="Log In">
+</div>
+</div>
+</form>
+</div>
+</div>
+{%endblock%}

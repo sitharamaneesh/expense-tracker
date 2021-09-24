@@ -1,0 +1,40 @@
+{%extends 'base.html'%}
+{%block content%}
+<div class="content">
+    <div class="image"  style=" position: absolute; ">
+        <div class="navbar">
+            <a href="{%url 'home'%}" style="float: left;">Home</a>
+            <a href="{%url 'addexpensepage'%}" >Add Expense</a>
+            <a href="{%url 'addbalancepage'%}" >Add Balance</a>
+            <a href="{%url 'viewpage'%}"  class="active" >View Expenses</a>
+            <a href="{%url 'checkbalancepage'%}" >Check Balance</a>
+            <a href="{%url 'totalexppage'%}" >Total expenses</a>
+            <a href="{%url 'logout'%}" style="float: right;">Log Out</a>
+        </div>    
+<form action="viewExpense" method="POST">
+    {%csrf_token%}
+<div class="form-group"  style="padding-top:50px;">
+    <div class="tablediv">
+<table class="table"  >
+    <tr>
+        <th>User</th>
+        <th>Expense</th>
+        <th>Cost</th>
+       
+    </tr>
+    {%for i in exp%}
+    <tr>
+        <td>{{i.user|title}}</td>
+        <td>{{i.expense|title}}</td>
+        <td>{{i.amount}}</td>
+    </tr>
+    {%endfor%}
+</table>
+<p><input class="submit" type="submit" value="View Expenses"></p>
+<div class="errmsg">{{msg1}}</div>
+</div>
+</div>
+</form>
+</div>
+</div>
+{%endblock%}

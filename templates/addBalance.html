@@ -1,0 +1,28 @@
+{% extends 'base.html'   %}
+{%block content%}
+
+<div class="content">
+    <div class="image">
+      <div class="navbar">
+        <a href="{%url 'home'%}" style="float: left;">Home</a>
+        <a href="{%url 'addexpensepage'%}" >Add Expense</a>
+        <a href="{%url 'addbalancepage'%}" class="active">Add Balance</a>
+        <a href="{%url 'viewpage'%}" >View Expenses</a>
+        <a href="{%url 'checkbalancepage'%}" >Check Balance</a>
+        <a href="{%url 'totalexppage'%}" >Total expenses</a>
+        <a href="{%url 'logout'%}" style="float: right;">Log Out</a>
+      </div>  
+<form action="addBalance" method="POST">
+    {%csrf_token%}
+<div class="form-group">
+    <p><b><i>{{b}}</i></b></p>
+    <label class="control-label">Enter Deposit</label>
+    <input class="form-control" name="balance" required >
+    <input style="margin-top:30px;" class="submit" type="submit" value="Add Deposit">
+    
+</div>
+</form>
+<div class="errormsg">{{msg}}</div>
+</div>
+</div>
+{%endblock%}
